@@ -9,3 +9,4 @@ C:\Projetos\C#\cCharp_POO\cCharp_POO\obj\Debug\netcoreapp2.2\cCharp_POO.Assembly
 C:\Projetos\C#\cCharp_POO\cCharp_POO\obj\Debug\netcoreapp2.2\cCharp_POO.dll
 C:\Projetos\C#\cCharp_POO\cCharp_POO\obj\Debug\netcoreapp2.2\cCharp_POO.pdb
 C:\Projetos\C#\cCharp_POO\cCharp_POO\obj\Debug\netcoreapp2.2\cCharp_POO.csprojAssemblyReference.cache
+C:\Projetos\C#\cCharp_POO\cCharp_POO\obj\Debug\netcoreapp2.2\cCharp_POO.genruntimeconfig.cache

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Projetos\\C#\\cCharp_POO\\cCharp_POO\\cCharp_POO.csproj": {}
+    "C:\\Projetos\\C#\\cCharp_POO\\cCharp_POO\\cCharp_POO.csproj": {}
   },
   "projects": {
-    "c:\\Projetos\\C#\\cCharp_POO\\cCharp_POO\\cCharp_POO.csproj": {
+    "C:\\Projetos\\C#\\cCharp_POO\\cCharp_POO\\cCharp_POO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Projetos\\C#\\cCharp_POO\\cCharp_POO\\cCharp_POO.csproj",
+        "projectUniqueName": "C:\\Projetos\\C#\\cCharp_POO\\cCharp_POO\\cCharp_POO.csproj",
         "projectName": "cCharp_POO",
-        "projectPath": "c:\\Projetos\\C#\\cCharp_POO\\cCharp_POO\\cCharp_POO.csproj",
+        "projectPath": "C:\\Projetos\\C#\\cCharp_POO\\cCharp_POO\\cCharp_POO.csproj",
         "packagesPath": "C:\\Users\\werik\\.nuget\\packages\\",
-        "outputPath": "c:\\Projetos\\C#\\cCharp_POO\\cCharp_POO\\obj\\",
+        "outputPath": "C:\\Projetos\\C#\\cCharp_POO\\cCharp_POO\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
