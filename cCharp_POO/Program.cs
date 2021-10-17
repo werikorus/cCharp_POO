@@ -2,6 +2,7 @@
 using cCharp_POO.Entities;
 using System.Collections.Generic;
 using cCharp_POO.Entities.Enums;
+using cCharp_POO.Entities.Exceptions;
 using System.Globalization;
 
 namespace cCharp_POO
@@ -17,6 +18,7 @@ namespace cCharp_POO
             Console.WriteLine("4 - Tax Payer");
             Console.WriteLine("5 - Try Except");
             Console.WriteLine("6 - Host Reserve");
+            Console.WriteLine("7 - Account with exceptions");
             int problem = int.Parse(Console.ReadLine());
 
             while (!(problem == 0))
@@ -25,7 +27,7 @@ namespace cCharp_POO
                 {
                     case 1:
                         {
-                            Account acc1 = new Account(1101, "Alex", 500.0);
+                            Account acc1 = new Account(1101, "Alex", 500.0, 0);
                             Account acc2 = new SavingsAccount(1002, "Anna", 500.0, 0.01);
 
                             acc1.Withdraw(10.0);
@@ -226,24 +228,19 @@ namespace cCharp_POO
 
                     case 6:
                         {
-                            // SOLUÇÃO RUIM :
-
-                            Console.WriteLine("Room number: ");
-                            int roomNumber = int.Parse(Console.ReadLine());
-
-                            Console.WriteLine("Check-in date (dd/MM/yyyy): ");
-                            DateTime checkIn = DateTime.Parse(Console.ReadLine());
-
-                            Console.WriteLine("Check-out date (dd/MM/yyyy): ");
-                            DateTime checkOut = DateTime.Parse(Console.ReadLine());
-
-
-                            if (checkOut <= checkIn)
+                            try
                             {
-                                Console.WriteLine("Error in reservation: Check-out date must be after check-in date. ");
-                            }
-                            else
-                            {
+
+                                Console.WriteLine("Room number: ");
+                                int roomNumber = int.Parse(Console.ReadLine());
+
+                                Console.WriteLine("Check-in date (dd/MM/yyyy): ");
+                                DateTime checkIn = DateTime.Parse(Console.ReadLine());
+
+                                Console.WriteLine("Check-out date (dd/MM/yyyy): ");
+                                DateTime checkOut = DateTime.Parse(Console.ReadLine());
+
+
                                 Reservation reservation = new Reservation(roomNumber, checkIn, checkOut);
                                 Console.WriteLine("Reservation: " + reservation);
 
@@ -258,20 +255,73 @@ namespace cCharp_POO
                                 checkOut = DateTime.Parse(Console.ReadLine());
 
 
-                                string error = reservation.UpdateDates(checkIn, checkOut);
-
-                                if(error != null)
-                                {
-                                    Console.WriteLine("Error in reservation: " + error);
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Reservation: " + reservation);
-                                }
+                                reservation.UpdateDates(checkIn, checkOut);
+                                Console.WriteLine("Reservation: " + reservation);
                             }
+                            catch (DomainException e)
+                            {
+                                Console.WriteLine("Error in reservation: " + e.Message);
+                            }
+                            catch (FormatException e)
+                            {
+                                Console.WriteLine("Error when entering data: " + e.Message);
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine("Error reservation: " + e.Message);
+                            }
+                            finally
+                            {
+                                Console.WriteLine("End Reservation.");
+                            }
+
                         }
                         break;
 
+                    case 7:
+                        {
+                            //exercício fixação exceptions;
+
+                            Console.WriteLine("Enter account data");
+
+                            Console.Write("Number: ");
+                            int cNumber = int.Parse(Console.ReadLine());
+
+                            Console.Write("Holder: ");
+                            string cHolder = Console.ReadLine();
+
+                            Console.Write("Initial balance: ");
+                            double cInitialBalance = double.Parse(Console.ReadLine());
+
+                            Console.Write("Withdraw limit: ");
+                            double cWithdrawLimit = double.Parse(Console.ReadLine());
+
+                            Console.WriteLine();
+                            Console.WriteLine("Enter amount for withdraw: ");
+                            double cWithdraw = double.Parse(Console.ReadLine());
+
+                            try
+                            {
+                                Account Acc = new Account(cNumber, cHolder, cInitialBalance, cWithdrawLimit);
+
+                                Acc.Withdraw(cWithdraw);
+
+                                Console.WriteLine("New Balance: " + Acc.Balance.ToString("F2", CultureInfo.InvariantCulture));
+                            }
+                            catch(DomainException e)
+                            {
+                                Console.WriteLine("Error in Transaction: " + e.Message);
+                            }
+                            catch (FormatException e)
+                            {
+                                Console.WriteLine("Data format error! " + e.Message);
+                            }
+                            finally
+                            {
+                                Console.WriteLine("End transaction!");
+                            }
+                        }
+                        break;
                 }
 
             }
@@ -279,6 +329,7 @@ namespace cCharp_POO
         }
 
     }
+
 }
 
 

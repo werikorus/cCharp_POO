@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "abSQ3+NfylWZSCIsYWYUTI4XoVQRpQm7dYWP5KUEN4onJqtculW5waI3wX9HNY/HFAavcuS9e8Pytl0AlTZ4hg==",
+  "dgSpecHash": "1bsyN36VZLpQC8AmNY2pzKYEgDn5a36qADK+VOGh2m2px8h6fZCNK8Z2l//J1qL84He5NHxRG7dhfzmdjxCj2w==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\C#\\cCharp_POO\\cCharp_POO\\cCharp_POO.csproj",
+  "projectFilePath": "c:\\Projetos\\C#\\cCharp_POO\\cCharp_POO\\cCharp_POO.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.app\\2.2.0\\microsoft.netcore.app.2.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.dotnetapphost\\2.2.0\\microsoft.netcore.dotnetapphost.2.2.0.nupkg.sha512",

@@ -1,4 +1,5 @@
 ﻿using System;
+using cCharp_POO.Entities.Exceptions;
 
 
 namespace cCharp_POO.Entities
@@ -9,8 +10,18 @@ namespace cCharp_POO.Entities
         public string Holder { get; private set; }
         public double Balance { get; protected set; }
 
+        public double WithDrawLimit { get; set; }
+
         public Account()
         {
+        }
+
+        public Account(int number, string holder, double balance, double withDrawLimit)
+        {
+            Number = number;
+            Holder = holder;
+            Balance = balance;
+            WithDrawLimit = withDrawLimit;
         }
 
         public Account(int number, string holder, double balance)
@@ -22,7 +33,19 @@ namespace cCharp_POO.Entities
 
         public virtual void Withdraw(double amount)
         {
-            Balance -= amount + 5.0;
+            if (amount > WithDrawLimit)
+            {
+                throw new DomainException("The amount exceeds withdraw limit");
+            }
+            else if (amount > Balance)
+            {
+                throw new DomainException("Not enough balance");
+            }
+            else
+            {
+                Balance -= amount;
+            }
+
         }
 
         public void Deposit(double amount)

@@ -17,7 +17,6 @@ namespace cCharp_POO.Entities
             : base(number, holder, balance)
         {
             LoanLimit = loanLimit;
-
         }
 
         public void Loan(double amount)
