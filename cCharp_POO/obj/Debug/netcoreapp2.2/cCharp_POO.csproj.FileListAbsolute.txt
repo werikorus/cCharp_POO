@@ -9,3 +9,14 @@ C:\Projetos\C#\cCharp_POO\cCharp_POO\obj\Debug\netcoreapp2.2\cCharp_POO.Assembly
 C:\Projetos\C#\cCharp_POO\cCharp_POO\obj\Debug\netcoreapp2.2\cCharp_POO.dll
 C:\Projetos\C#\cCharp_POO\cCharp_POO\obj\Debug\netcoreapp2.2\cCharp_POO.pdb
 C:\Projetos\C#\cCharp_POO\cCharp_POO\obj\Debug\netcoreapp2.2\cCharp_POO.csprojAssemblyReference.cache
+C:\Projetos\C#\Estudos\cCharp_POO\cCharp_POO\bin\Debug\netcoreapp2.2\cCharp_POO.deps.json
+C:\Projetos\C#\Estudos\cCharp_POO\cCharp_POO\bin\Debug\netcoreapp2.2\cCharp_POO.runtimeconfig.json
+C:\Projetos\C#\Estudos\cCharp_POO\cCharp_POO\bin\Debug\netcoreapp2.2\cCharp_POO.runtimeconfig.dev.json
+C:\Projetos\C#\Estudos\cCharp_POO\cCharp_POO\bin\Debug\netcoreapp2.2\cCharp_POO.dll
+C:\Projetos\C#\Estudos\cCharp_POO\cCharp_POO\bin\Debug\netcoreapp2.2\cCharp_POO.pdb
+C:\Projetos\C#\Estudos\cCharp_POO\cCharp_POO\obj\Debug\netcoreapp2.2\cCharp_POO.csprojAssemblyReference.cache
+C:\Projetos\C#\Estudos\cCharp_POO\cCharp_POO\obj\Debug\netcoreapp2.2\cCharp_POO.csproj.CoreCompileInputs.cache
+C:\Projetos\C#\Estudos\cCharp_POO\cCharp_POO\obj\Debug\netcoreapp2.2\cCharp_POO.AssemblyInfoInputs.cache
+C:\Projetos\C#\Estudos\cCharp_POO\cCharp_POO\obj\Debug\netcoreapp2.2\cCharp_POO.AssemblyInfo.cs
+C:\Projetos\C#\Estudos\cCharp_POO\cCharp_POO\obj\Debug\netcoreapp2.2\cCharp_POO.dll
+C:\Projetos\C#\Estudos\cCharp_POO\cCharp_POO\obj\Debug\netcoreapp2.2\cCharp_POO.pdb

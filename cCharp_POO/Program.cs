@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using cCharp_POO.Entities.Enums;
 using cCharp_POO.Entities.Exceptions;
 using System.Globalization;
+using System.IO;
+using cCharp_POO.Services;
 
 namespace cCharp_POO
 {
@@ -19,9 +21,14 @@ namespace cCharp_POO
             Console.WriteLine("5 - Try Except");
             Console.WriteLine("6 - Host Reserve");
             Console.WriteLine("7 - Account with exceptions");
+            Console.WriteLine("8 - Files - Copy, Copy to show up -  Stream");
+            Console.WriteLine("9 - Fechar try and finally to close - StreamReader");
+            Console.WriteLine("10 - StreamWriter");
+            Console.WriteLine("11 - CarRental");
+
             int problem = int.Parse(Console.ReadLine());
 
-            while (!(problem == 0))
+            if (problem != 0)
             {
                 switch (problem)
                 {
@@ -308,7 +315,7 @@ namespace cCharp_POO
 
                                 Console.WriteLine("New Balance: " + Acc.Balance.ToString("F2", CultureInfo.InvariantCulture));
                             }
-                            catch(DomainException e)
+                            catch (DomainException e)
                             {
                                 Console.WriteLine("Error in Transaction: " + e.Message);
                             }
@@ -322,6 +329,130 @@ namespace cCharp_POO
                             }
                         }
                         break;
+
+                    case 8:
+                        {
+                            string sourcePath = @"C:\Projetos\C#\Estudos\cCharp_POO\files\file1.txt";
+                            StreamReader sr = null;
+
+                            try
+                            {
+                                sr = File.OpenText(sourcePath);
+
+                                while (!sr.EndOfStream)
+                                {
+                                    string line = sr.ReadLine();
+                                    Console.WriteLine(line);
+                                };
+
+                            }
+                            catch (IOException e)
+                            {
+                                Console.WriteLine("An error ocurred");
+                                Console.WriteLine(e.Message);
+                            }
+                            finally
+                            {
+                                if (sr != null) sr.Close();
+                            }
+                        }
+                        break;
+
+                    case 9:
+                        {
+                            string sourcePath = @"C:\Projetos\C#\Estudos\cCharp_POO\files\file1.txt";
+
+                            try
+                            {
+                                using (StreamReader sr = File.OpenText(sourcePath))
+                                {
+                                    while (!sr.EndOfStream)
+                                    {
+                                        string line = sr.ReadLine();
+                                        Console.WriteLine(line);
+                                    }
+                                }
+
+                            }
+                            catch (IOException e)
+                            {
+                                Console.WriteLine("An error ocurred:");
+                                Console.WriteLine(e.Message);
+                            }
+
+                        }
+                        break;
+
+                    case 10:
+                        {
+                            string sourcePath = @"C:\Projetos\C#\Estudos\cCharp_POO\files\file1.txt";
+                            string targetPath = @"C:\Projetos\C#\Estudos\cCharp_POO\files\file2.txt";
+
+                            try
+                            {
+                                string[] lines = File.ReadAllLines(sourcePath);
+
+                                using (StreamWriter sw = File.AppendText(targetPath))
+                                {
+                                    foreach (string line in lines)
+                                    {
+                                        sw.WriteLine(line.ToUpper());
+                                    };
+                                };
+
+                            }
+                            catch (IOException e)
+                            {
+                                Console.WriteLine("An error ocurred:");
+                                Console.WriteLine(e.Message);
+                            }
+                        }
+                        break;
+
+                    case 11:
+                        {
+                            try
+                            {
+                                Console.WriteLine("Enter rental data");
+                                Console.Write("Country: (BRL/CND/EUA)");
+                                Countries country = Enum.Parse<Countries>(Console.ReadLine());
+
+                                Console.Write("Car model: ");
+                                string model = Console.ReadLine();
+
+                                Console.Write("Pickup (dd/MM/yyyy hh:mm): ");
+                                DateTime start = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+
+                                Console.Write("Return (dd/MM/yyyy hh:mm): ");
+                                DateTime finish = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+
+                                Console.Write("Enter price per hour: ");
+                                double hour = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                                Console.Write("Enter price per day: ");
+                                double day = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                                CarRental carRental = new CarRental(start, finish, new Vehicle(model));
+
+                                // encontrar uma forma de retirar o BrazilTaxService e enviar só o enum do país!!
+                                RentalService rentalService = new RentalService(hour, day, country, new BrazilTaxService());
+                                rentalService.ProcessInvoice(carRental);
+                                
+                                Console.Write("INVOICE: ");
+                                Console.WriteLine(carRental.Invoice);
+                            }
+                            catch (StackOverflowException error)
+                            {
+                                Console.WriteLine("Error in Rental Car: " + error.Message);
+                            }
+                            catch (Exception error)
+                            {
+                                Console.WriteLine("Error in Rental Car: " + error.Message);
+                            }
+
+                        }
+                        break;
+
                 }
 
             }

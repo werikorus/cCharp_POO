@@ -692,11 +692,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Projetos\\C#\\cCharp_POO\\cCharp_POO\\cCharp_POO.csproj",
+      "projectUniqueName": "C:\\Projetos\\C#\\Estudos\\cCharp_POO\\cCharp_POO\\cCharp_POO.csproj",
       "projectName": "cCharp_POO",
-      "projectPath": "c:\\Projetos\\C#\\cCharp_POO\\cCharp_POO\\cCharp_POO.csproj",
+      "projectPath": "C:\\Projetos\\C#\\Estudos\\cCharp_POO\\cCharp_POO\\cCharp_POO.csproj",
       "packagesPath": "C:\\Users\\werik\\.nuget\\packages\\",
-      "outputPath": "c:\\Projetos\\C#\\cCharp_POO\\cCharp_POO\\obj\\",
+      "outputPath": "C:\\Projetos\\C#\\Estudos\\cCharp_POO\\cCharp_POO\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -714,7 +714,6 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "targetAlias": "netcoreapp2.2",
           "projectReferences": {}
         }
       },
@@ -726,7 +725,6 @@
     },
     "frameworks": {
       "netcoreapp2.2": {
-        "targetAlias": "netcoreapp2.2",
         "dependencies": {
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
@@ -736,16 +734,10 @@
           }
         },
         "imports": [
-          "net461",
-          "net462",
-          "net47",
-          "net471",
-          "net472",
-          "net48"
+          "net461"
         ],
         "assetTargetFallback": true,
-        "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "warn": true
       }
     }
   }
