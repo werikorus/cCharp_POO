@@ -1,11 +1,11 @@
 ﻿using System;
 using cCharp_POO.Entities;
+using cCharp_POO.Services;
 using System.Collections.Generic;
 using cCharp_POO.Entities.Enums;
 using cCharp_POO.Entities.Exceptions;
 using System.Globalization;
 using System.IO;
-using cCharp_POO.Services;
 
 namespace cCharp_POO
 {
@@ -25,6 +25,10 @@ namespace cCharp_POO
             Console.WriteLine("9 - Fechar try and finally to close - StreamReader");
             Console.WriteLine("10 - StreamWriter");
             Console.WriteLine("11 - CarRental");
+            Console.WriteLine("12 - Installment");
+            Console.WriteLine("13 - Herança/Cumprir Contrato");
+            Console.WriteLine("14 - Generics");
+            Console.WriteLine("15 - Achar o número máximo com Generics");
 
             int problem = int.Parse(Console.ReadLine());
 
@@ -87,7 +91,7 @@ namespace cCharp_POO
                             Console.WriteLine("PRICE TAGS:");
                             foreach (Product prod in product)
                             {
-                                Console.WriteLine(prod.PriceTag());
+                               // Console.WriteLine(prod.PriceTag());
                             }
 
                         }
@@ -403,7 +407,7 @@ namespace cCharp_POO
                             }
                             catch (IOException e)
                             {
-                                Console.WriteLine("An error ocurred:");
+                                Console.WriteLine("An error ocurred: ");
                                 Console.WriteLine(e.Message);
                             }
                         }
@@ -437,7 +441,7 @@ namespace cCharp_POO
                                 // encontrar uma forma de retirar o BrazilTaxService e enviar só o enum do país!!
                                 RentalService rentalService = new RentalService(hour, day, country, new BrazilTaxService());
                                 rentalService.ProcessInvoice(carRental);
-                                
+
                                 Console.Write("INVOICE: ");
                                 Console.WriteLine(carRental.Invoice);
                             }
@@ -449,6 +453,96 @@ namespace cCharp_POO
                             {
                                 Console.WriteLine("Error in Rental Car: " + error.Message);
                             }
+
+                        }
+                        break;
+
+                    //exercício de fixação interface Parcelas (DOING)
+                    case 12:
+                        {
+                            Console.WriteLine("Enter contract data");
+                            Console.Write("Number: ");
+                            int number = int.Parse(Console.ReadLine());
+
+                            Console.Write("Date (dd/MM/yyyy): ");
+                            DateTime date = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+
+                            Console.Write("Contract value: ");
+                            double contractValue = double.Parse(Console.ReadLine());
+
+                            Console.Write("Enter number of installments: ");
+                            int numberInstallments = int.Parse(Console.ReadLine());
+
+                        }
+                        break;
+
+                    case 13:
+                        {
+                            Printer p = new Printer() { SerialNumber = 1080 };
+                            p.ProcessDoc("My letter");
+                            p.Print("My letter");
+
+                            Scanner s = new Scanner() { SerialNumber = 2003 };
+                            s.ProcessDoc("My Email");
+                            Console.WriteLine(s.Scan());
+
+
+                            ComboDevice c = new ComboDevice() { SerialNumber = 2912 };
+                            c.ProcessDoc("My dissertation");
+                            c.Print("My dissertation");
+
+                            Console.WriteLine(c.Scan());
+                        }
+                        break;
+
+
+                    case 14:
+                        {
+                            //GENERICS
+                            //oque está entre <> já define o tipo que decorrerá a rotina,  isso garante o TypeSafety 
+
+                            PrintService<int> printService = new PrintService<int>();
+
+                            Console.Write("How many values? ");
+                            int n = int.Parse(Console.ReadLine());
+
+                            for (int i = 0; i < n; i++)
+                            {
+                                int x = int.Parse(Console.ReadLine());
+                                printService.AddValue(x);
+                            };
+
+                            int a = printService.First();
+                            int b = a + 2;
+                            Console.WriteLine(b);
+
+                            printService.Print();
+                            Console.WriteLine("First: " + printService.First());
+
+                        }
+                        break;
+
+                    case 15:
+                        {
+                            // Achar o número máximo com GEnerics!
+                            List<Product> list = new List<Product>();
+                            Console.Write("Enter N: ");
+                            int n = int.Parse(Console.ReadLine());
+
+
+                            for (int i = 0; i < n; i++)
+                            {
+                                string[] vect = Console.ReadLine().Split(',');
+                                double price = double.Parse(vect[1], CultureInfo.InvariantCulture);
+                                list.Add(new Product(vect[0], price));
+                            }
+
+                            CalculationService calculationService = new CalculationService();
+
+                            Product p = calculationService.Max(list); // <Product> is optional
+
+                            Console.WriteLine("Most expensive:");
+                            Console.WriteLine(p);
 
                         }
                         break;

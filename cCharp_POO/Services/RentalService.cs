@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using cCharp_POO.Entities;
 using cCharp_POO.Entities.Enums;
-using System.Text;
 
 namespace cCharp_POO.Services
 {

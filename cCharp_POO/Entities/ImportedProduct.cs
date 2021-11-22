@@ -20,7 +20,7 @@ namespace cCharp_POO.Entities
             return Price + CustomsFee;
         }
 
-        public override string PriceTag()
+     /*   public override string PriceTag()
         {
             return Name
                     + " $ "
@@ -28,7 +28,7 @@ namespace cCharp_POO.Entities
                     + " (Customs fee: $ "
                     + CustomsFee.ToString("F2", CultureInfo.InvariantCulture)
                     + ")";
-        }
+        }*/
 
     }
 

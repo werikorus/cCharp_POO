@@ -16,14 +16,14 @@ namespace cCharp_POO.Entities
             ManufactureDate = manufactureDate;
         }
 
-        public override string PriceTag()
-        {
-            return Name
-                     + " (used) $ "
-                     + Price.ToString("F2", CultureInfo.InvariantCulture)
-                     + " (Manufacture date: "
-                     + ManufactureDate.ToString("dd/MM/yyyy")
-                     + ")";
-        }
+        /*   public override string PriceTag()
+           {
+               return Name
+                        + " (used) $ "
+                        + Price.ToString("F2", CultureInfo.InvariantCulture)
+                        + " (Manufacture date: "
+                        + ManufactureDate.ToString("dd/MM/yyyy")
+                        + ")";
+           }*/
     }
 }
